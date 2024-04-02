@@ -1,4 +1,4 @@
-node ('any'){
+node {
     stage ('checkoutcode'){
         git branch: 'main' , url: 'https://github.com/Bicky7735369355/java-web-app.git'
 
