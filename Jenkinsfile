@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'jenkins-label'
+        }
+    }
     stages {
         stage ('checkoutcode') {
             steps{
