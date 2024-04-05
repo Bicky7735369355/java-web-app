@@ -1,16 +1,12 @@
-pipeline {
-    agent { label 'slave-node-label || slave-node-2-label'}
-    stages {
-        stage ('checkoutcode') {
-            steps{
-                git branch: 'main' , url: 'https://github.com/Bicky7735369355/java-web-app.git'
-            }
-        }
-        stage ('buildcode'){
-            steps{
-                sh '/opt/maven/bin/mvn clean package'
-            }
-        }
-        
+node {
+    stage ('check out code') {
+        git branch: 'main' , url: 'https://github.com/Bicky7735369355/java-web-app.git'
+
+    }
+    stage ('build code') {
+        sh '/opt/maven/bin/mvn clean package'
+    }
+    stage ('deploy to container') {
+        deploy adapters [tomcat9(url: 'http://54.154.170.31:8080' , credentialsId: 'tomcatcred' )] , war: '**/*.war'
     }
 }
