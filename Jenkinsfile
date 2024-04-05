@@ -7,6 +7,6 @@ node {
         sh '/opt/maven/bin/mvn clean package'
     }
     stage ('deploy to container') {
-        deploy adapters [tomcat9(url: 'http://54.154.170.31:8080' , credentialsId: 'tomcatcred' )] , war: '**/*.war'
+        deploy adapters: [tomcat9(url: 'http://54.154.170.31:8080' , credentialsId: 'tomcatcred' )] , war: '**/*.war'
     }
 }
