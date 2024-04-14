@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('checkout code') {
             steps {
-                git branch: 'main', url: 'https://github.com/Bicky7735369355/java-web-app-ashok-it.git'
+                git branch: 'main', url: 'https://github.com/Bicky7735369355/java-web-app.git'
             }
         }
         stage('build code') {
