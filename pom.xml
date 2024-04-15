@@ -21,10 +21,16 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.11</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.api/sonar-scanner-api -->                        
+    <dependency>
+        <groupId>org.sonarsource.scanner.api</groupId>
+        <artifactId>sonar-scanner-api</artifactId>
+        <version>2.16.3.1081</version>
     </dependency>
   </dependencies>
 
