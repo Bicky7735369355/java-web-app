@@ -1,4 +1,7 @@
-FROM tomcat:8.0.20-jre8
-MAINTAINER Ashok <ashok@oracle.com>
-EXPOSE 8080
-COPY target/welcomeapp.war /usr/local/tomcat/webapps/welcomeapp.war
+	FROM tomcat:9
+	WORKDIR /usr/local/tomcat
+	RUN mv webapps.dist/* webapps/
+	COPY target/welcome.war  webapps/
+	EXPOSE 8080
+	CMD [ "/usr/local/tomcat/bin/catalina.sh" , "run" ]
+
