@@ -1,37 +1,37 @@
----
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: welcomeappdeployment
+  name: my-deployment
 spec:
-  replicas: 2
-  strategy:
-    type: Recreate
   selector:
     matchLabels:
-      app: welcomeapp
+      app: myapp
+  replicas: 2 # Number of replicas that will be created for this deployment
   template:
-    metadata: 
-      name: welcomeapppod
+    metadata:
       labels:
-        app: welcomeapp 
+        app: myapp
     spec:
       containers:
-      - name: welcomeappcontainer
-        image: bicky77/my-img
-        ports:
-        - containerPort: 8080
+        - name: santa
+          image: bicky77/my-img
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080 # The port that the container is running on in the cluster
+
 
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  name: welcomeappsvc
+
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: my-ssvc
 spec:
-  type: NodePort
   selector:
-    app: welcomeapp
+    app: myapp
   ports:
-  - port: 80
-    targetPort: 8080
-    nodePort: 30000
+    - protocol: "TCP"
+      port: 80 # The port that the service is running on in the cluster
+      targetPort: 8080 # The port exposed by the service
+      nodePort: 32000
+  type: NodePort # type of the service.
