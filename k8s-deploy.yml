@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: welcomeappcontainer
-        image: bicky77/project4
+        image: bicky77/my-img
         ports:
         - containerPort: 8080
 
