@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo "_________________Build_started____________________"
                 sh "mvn clean package "
-                echo "_________________Build_Ebd______________________"
+                echo "_________________Build_End______________________"
             }
         }
 
