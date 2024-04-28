@@ -18,7 +18,7 @@ pipeline {
         stage ('Build Code') {
             steps {
                 echo "_________________Build_started____________________"
-                sh "mvn clean package -Dmaven.test.skip= true"
+                sh "mvn clean package "
                 echo "_________________Build_Ebd______________________"
             }
         }
