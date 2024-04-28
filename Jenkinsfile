@@ -4,9 +4,6 @@ pipeline {
             label "slave-label-1"
         }
     }
-    environment {
-        PATH='/opt/apache-maven-3.9.6/bin:$PATH'
-    }
     stages {
         stage ('CheckOut Code') {
             steps {
@@ -18,7 +15,7 @@ pipeline {
         stage ('Build Code') {
             steps {
                 echo "_________________Build_started____________________"
-                sh "mvn clean package "
+                sh "/opt/apache-maven-3.9.6/bin/mvn clean package "
                 echo "_________________Build_End______________________"
             }
         }
